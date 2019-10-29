@@ -1,1 +1,36 @@
-<p>search works!</p>
+<h1>Need music?</h1>
+<p class="lead">Use the spotify app to browse artists and tracks</p>
+<form>
+  <div class="form-group">
+    <input type="text" name="searchStr" [(ngModel)]="searchStrArtist" (keyup)="searchArtist()" class="form-control" placeholder="Search Artist..." >
+  </div>
+  <div class="form-group">
+    <input type="text" name="searchStr" [(ngModel)]="searchStrTrack" (keyup)="searchTrack()" class="form-control" placeholder="Search Track..." >
+  </div>
+</form>
+<div *ngIf = "searchResArtist">
+  <div *ngFor = "let res of searchResArtist">
+    <div class="row">
+      <div class="col-md-12 mt-3">
+        <div class="search-res well">
+          <h4>{{res.name}}
+            <button type="button" [(ngModel)]="artist" (click)="addFavouriteArtist(res.name)" ngDefaultControl value="{{res.name}}" class="btn btn-primary">Add to favourite</button>
+          </h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf = "searchResTrack">
+  <div *ngFor = "let res of searchResTrack">
+    <div class="row">
+      <div class="col-md-12 mt-3">
+        <div class="search-res well">
+          <h4>{{res.track}}
+            <button type="button" [(ngModel)]="track" (click)="addFavouriteTrack(res.track)" ngDefaultControl value="{{res.track}}" class="btn btn-primary">Add to favourite</button>
+          </h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,1 +1,13 @@
-<p>favourite-artist works!</p>
+<div *ngIf = "listOfFavouriteArtists">
+  <div *ngFor = "let res of listOfFavouriteArtists">
+    <div class="row">
+      <div class="col-md-12 mt-3">
+        <div class="search-res well">
+          <h4>{{res.name}}
+            <button type="button" (click)="deleteFavouriteArtist(res)" class="btn btn-danger">Delete</button>
+          </h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
